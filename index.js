@@ -1,10 +1,12 @@
 // add event listener to each individual button
 
-document.querySelector("button").addEventListener("click", handleClick);
+const audio = new Audio("sounds/tom-1.mp3");
 
-const allButtons = document.querySelectorAll("button");
+document.querySelectorAll(".drum").forEach((button) => {
+    button.addEventListener("click", () => {
+        alert("It was clicked!"),
+        audio.play()
+    })
+});
 
-function handleClick () {
-    allButtons[2];
-    alert("It got clicked!");
-}
+

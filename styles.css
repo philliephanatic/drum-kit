@@ -16,8 +16,6 @@ footer {
   font-family: sans-serif;
 }
 
-/* add background image per class */
-
 .w {
   background-image: url("images/crash.png")
 }

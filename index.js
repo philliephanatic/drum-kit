@@ -53,10 +53,8 @@ document.addEventListener("keydown", function (event) { // add event listener fo
     buttonAnimation(pressedKey);
 })
 
-//add .pressed CSS class to active button | add class to element
-
 function buttonAnimation(currentKey) {
-    let activeButton = document.querySelector("." + currentKey);
+    const activeButton = document.querySelector("." + currentKey);
     activeButton.classList.add("pressed"); 
     setTimeout(function() {
         activeButton.classList.remove("pressed");

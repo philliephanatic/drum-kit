@@ -1,6 +1,3 @@
-// create function that takes a character and checks against switch statement to play correct sound
-// call in event listener for keypress and button
-
 function playSound (key) {
     switch (key) {
         case "w":
@@ -42,14 +39,27 @@ function playSound (key) {
         }
 }
 
-document.querySelectorAll(".drum").forEach((button) => {
-        button.addEventListener("click", function () {
-            const buttonInnerHTML = this.innerHTML; // Get the button's innerHTML (e.g., "w", "a", etc.)
-            playSound(buttonInnerHTML);
+document.querySelectorAll(".drum").forEach((button) => { // query selector for each .drum button
+    button.addEventListener("click", function () { // add event listener for button
+        const buttonInnerHTML = this.innerHTML; // Get the button's innerHTML 
+        playSound(buttonInnerHTML);
+        buttonAnimation(buttonInnerHTML);
         })
     })
 
-document.addEventListener("keydown", function (event) {
-    const pressedKey = event.key; // Get the key that was pressed (e.g., "w", "a", etc.)
+document.addEventListener("keydown", function (event) { // add event listener for entire document)
+    const pressedKey = event.key; // Get the key that was pressed 
     playSound(pressedKey);
+    buttonAnimation(pressedKey);
 })
+
+//add .pressed CSS class to active button | add class to element
+
+function buttonAnimation(currentKey) {
+    let activeButton = document.querySelector("." + currentKey);
+    activeButton.classList.add("pressed"); 
+    setTimeout(function() {
+        activeButton.classList.remove("pressed");
+    }, 200);
+}
+
